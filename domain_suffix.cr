@@ -2,9 +2,7 @@ require "lexbor"
 require "http/client"
 require "log"
 require "benchmark"
-require "string_scanner"
 require "regex"
-require "unicode"
 
 
 # Initial impression of the code
@@ -24,7 +22,7 @@ require "unicode"
 # everytime, and every function will be able to make use of this functionality.
 #--------------
 # 3. Initial code wasn't able to build and run due to dependencies issue with latest version of crystal.
-# So need to modify the dependencies to use lexbor instead of myhtml and accordingly code needs to be modifies.
+# So need to modify the dependencies to use lexbor instead of myhtml and accordingly code was also modified.
 #-------------------
 # 4. Actual core logic of strip_subdomains/2 and strip_suffix/2:
 # In these two functions most important thing is figuring out actual domain and TLD which is towards the end of
@@ -206,7 +204,7 @@ module DomainUtilV2
     # splitting of hostname string is the costliest
     # operation in this program, if we cache this
     # like below then it increases program
-    # speed by almost 40-50x for the input
+    # speed by almost 12-15x for the input
     # given below. This  looks like cheating for this exercise,
     # but in real-world scenarios caching the pre-computed
     # result is often needed to improve performance
